@@ -2,6 +2,16 @@
 
 A browser-based golf target planner. Choose the demo hole or upload an overhead image, map its fairway and hazards, enter your carry and lateral dispersion, and compare simulated target lines.
 
+## Screenshots
+
+The planner starts with a demo hole and lets you enter your own shot data.
+
+![Fairway planner overview](screenshots/planner.png)
+
+After simulation, the map shows the recommended line and landing area alongside estimated outcomes.
+
+![Simulated target line and results](screenshots/target-line.png)
+
 ## Run locally
 
 Open `index.html` in a modern browser, or serve the folder with `python3 -m http.server` and visit `http://localhost:8000`. No build step, account, or backend is required. Uploaded images stay in the browser and are lost on refresh.
