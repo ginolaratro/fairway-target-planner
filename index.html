@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fairway — Find your line</title>
+  <meta name="description" content="Explore a smarter target line with a simple golf shot simulation.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><a class="brand" href="#"><span class="brand-mark">✳</span> FAIRWAY <span class="brand-light">/ COURSE STRATEGY</span></a><a class="header-link" href="#how-it-works">How it works <span>↗</span></a></header>
+<main>
+  <section class="intro"><div><div class="eyebrow"><span class="dot"></span> YOUR GAME, WITH A GAME PLAN</div><h1>Find your<br><em>better line.</em></h1><p>Pick your spot. Know your miss. Make a more confident swing.</p></div><div class="intro-note"><span>THE IDEA</span><p>A smarter target isn’t always the center of the fairway. Let the numbers show you where to aim.</p></div></section>
+  <section class="workspace" aria-label="Target planner">
+    <aside class="controls"><div class="panel-title"><div><span class="step">01 / SET UP YOUR SHOT</span><h2>Build your plan</h2></div><span class="small-icon">↗</span></div>
+      <div class="field"><label for="hole">THE HOLE</label><select id="hole"><option value="sample">The Pines · Hole 04 (demo)</option><option value="custom">Your uploaded hole</option></select><p class="hint">Start with our demo, or bring your own view.</p></div>
+      <label class="upload" for="image"><span>＋</span> Upload hole image <small>JPG, PNG or WebP</small></label><input id="image" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+      <div class="divider"></div><div class="row-heading"><div><span class="step">YOUR SHOT</span><h3>Dial in your numbers</h3></div><span class="unit-tag">YARDS</span></div>
+      <div class="field"><label for="club">CLUB</label><select id="club"><option>Driver</option><option>3 wood</option><option>Hybrid</option><option>Long iron</option></select></div>
+      <div class="input-grid"><div class="field"><label for="distance">CARRY DISTANCE</label><div class="number"><input id="distance" type="number" min="50" max="350" value="240"><span>yd</span></div></div><div class="field"><label for="dispersion">SIDE DISPERSION <button class="info" title="One standard deviation of your left/right miss. About two-thirds of shots finish within this distance of your target line." aria-label="About side dispersion">?</button></label><div class="number"><input id="dispersion" type="number" min="1" max="100" value="22"><span>yd</span></div></div></div>
+      <p class="hint dispersion-hint">Typical left or right miss (one standard deviation).</p>
+      <div class="field"><label for="length">TEE TO GREEN</label><div class="number"><input id="length" type="number" min="100" max="700" value="390"><span>yd</span></div></div>
+      <button id="simulate" class="primary">Find my target line <span>↗</span></button><p id="error" class="error" role="alert"></p>
+      <div class="privacy"><span>✳</span> YOUR GAME, YOUR DATA <p>Everything stays in your browser.</p></div>
+    </aside>
+    <div class="map-panel"><div class="map-top"><div><span class="step light">02 / EXPLORE THE HOLE</span><h2 id="map-title">The Pines <span>/ Hole 04</span></h2></div><div class="hole-meta"><span>PAR 4</span><strong id="yardage">390 <small>YDS</small></strong></div></div>
+      <div class="map-wrap"><canvas id="map" width="760" height="720" aria-label="Overhead hole map. Click to set the selected map feature."></canvas><div class="map-overlay"><span class="map-label">HOLE VIEW</span><span class="map-label">↑ GREEN</span></div><div class="map-bottom"><span>↓ TEE</span><span>ILLUSTRATIVE VIEW · NOT TO SCALE</span></div></div>
+      <div class="map-tools"><div><strong>Make it yours</strong><p id="tool-help">Choose a tool, then click the map to edit the hole.</p></div><div class="tools"><button data-tool="tee">Tee</button><button data-tool="green">Green</button><button data-tool="fairway">Fairway</button><button data-tool="hazard">Hazard</button><button id="finish" hidden>Finish shape</button><button id="reset">Reset</button></div></div>
+    </div>
+    <aside class="results"><div class="panel-title"><div><span class="step">03 / YOUR GAME PLAN</span><h2>The play</h2></div><span class="small-icon">✳</span></div><div id="empty"><div class="result-art">⌁<span>✳</span></div><h3>Good shots start<br>with a good plan.</h3><p>Set your distances and find the target that works with your game.</p><div class="empty-line"></div><div class="mini-label">THE GOAL</div><p class="goal">More fairways.<br>Fewer big numbers.<br><em>More fun out there.</em></p></div><div id="result" hidden><div class="result-kicker"><span class="dot"></span> YOUR RECOMMENDED LINE</div><div class="aim-number" id="aim-number">—</div><p class="aim-copy" id="aim-copy"></p><div class="result-divider"></div><div class="metric"><span>Expected strokes <small>from tee</small></span><strong id="score">—</strong></div><div class="metric"><span>Fairway finishes</span><strong id="fairway-rate">—</strong></div><div class="metric"><span>Hazard finishes</span><strong id="hazard-rate">—</strong></div><p class="result-note">Based on 1,000 simulated shots per target. The circle shows your approximate two-standard-deviation landing area.</p><button id="details-toggle" class="text-button">How is this calculated? ↗</button></div></aside>
+  </section>
+  <section id="how-it-works" class="explainer"><div><span class="step">A LITTLE MORE CONTEXT</span><h2>Play the shot<br><em>you actually have.</em></h2></div><div><p>We test target lines across the hole, scatter simulated shots around each one, and estimate the strokes it takes to finish from where they land.</p><p>This is a planning aid, not a promise. The model uses a simplified distance-to-hole estimate and fixed penalties for rough and hazards. It doesn’t account for wind, elevation, rollout, or obstacles in the flight path.</p></div><div class="explainer-number">01 <span>/</span> 03</div></section>
+</main><footer><a class="brand" href="#"><span class="brand-mark">✳</span> FAIRWAY</a><span>MADE FOR THE NEXT SHOT.</span><span>PLAY SMART. ENJOY THE WALK.</span></footer>
+<script src="app.js"></script></body></html>
